@@ -82,33 +82,6 @@
     --chart-3: 36 92% 59%;
     --chart-4: 27 100% 69%;
   }
-
-  .violet {
-    --background: 246 100% 90%;
-    --foreground: 196 88% 3%;
-    --card: 246 100% 90%;
-    --card-foreground: 196 88% 3%;
-    --popover: 246 100% 90%;
-    --popover-foreground: 196 88% 3%;
-    --primary: 238 87% 63%;
-    --primary-foreground: 246 100% 90%;
-    --secondary: 231 87% 71%;
-    --secondary-foreground: 196 88% 3%;
-    --muted: 246 100% 10%;
-    --muted-foreground: 0 0% 40%;
-    --accent: 234 100% 85%;
-    --accent-foreground: 196 88% 3%;
-    --destructive: 0 85% 60%;
-    --destructive-foreground: 196 88% 3%;
-    --border: 246 100% 20%;
-    --input: 246 100% 20%;
-    --ring: 234 100% 40%;
-    --radius: 0.5rem;
-    --chart-1: 221.2 83.2% 53.3%;
-    --chart-2: 212 95% 68%;
-    --chart-3: 221.2 83.2% 53.3%;
-    --chart-4: 212 95% 68%;
-  }
 }
 
 @layer base {

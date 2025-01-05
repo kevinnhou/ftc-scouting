@@ -104,7 +104,7 @@ export default function GlobalError({
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
-          themes={["light", "dark", "saffron", "violet"]}
+          themes={["light", "dark", "saffron"]}
         >
           <Header />
           <RootProvider>
