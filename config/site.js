@@ -7,7 +7,7 @@ export const siteConfig = {
     "Scouting Application for the 2024/2025 First Tech Challenge - Into The Deep",
   creator: {
     name: "Kevin Hou",
-    links: "https://github.com/lemonade64",
+    links: "https://github.com/kevinnhou",
   },
   keywords: [
     "FTC",
@@ -22,7 +22,7 @@ export const siteConfig = {
   ],
   links: {
     url: "https://ftc-scouting-app.vercel.app",
-    repo: "https://github.com/lemonade64/ftc-scouting-app",
+    repo: "https://github.com/kevinnhou/ftc-scouting",
   },
 };
 
