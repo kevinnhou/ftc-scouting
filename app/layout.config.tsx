@@ -1,14 +1,18 @@
 import { type HomeLayoutProps } from "fumadocs-ui/home-layout";
+import { Binoculars } from "lucide-react";
 
 export const baseOptions: HomeLayoutProps = {
   nav: {
-    title: "My App",
+    title: "Curator",
+    transparentMode: "top",
   },
+  githubUrl: "https://github.com/kevinnhou/ftc-scouting",
   links: [
     {
-      text: "Documentation",
-      url: "/docs",
-      active: "nested-url",
+      text: "Scout",
+      url: "/scout",
+      icon: <Binoculars />,
+      external: false,
     },
   ],
 };
