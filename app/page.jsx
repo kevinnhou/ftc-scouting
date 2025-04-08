@@ -15,12 +15,6 @@ export default function Home() {
           Optimise Your Strategy With Curator
         </p>
         <div className="mt-10 flex flex-col space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0">
-          <Link href="/docs">
-            <Button size="lg" className="bg-black text-white hover:bg-gray-800">
-              View Docs
-              <BookOpen className="ml-2 h-5 w-5" />
-            </Button>
-          </Link>
           <Link href="/scout">
             <Button
               size="lg"

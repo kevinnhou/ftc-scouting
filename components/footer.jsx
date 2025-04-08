@@ -24,10 +24,9 @@ export default function Footer() {
   const { setTheme, themes } = useTheme();
 
   const pathname = usePathname();
-  const isDocs = pathname.startsWith("/docs");
   const isHome = pathname === "/";
 
-  if (isDocs || isHome) return null;
+  if (isHome) return null;
 
   return (
     <footer className="border-t">

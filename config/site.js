@@ -26,19 +26,7 @@ export const siteConfig = {
   },
 };
 
-export const headerLinks = [
-  {
-    name: "Docs",
-    href: "/docs",
-  },
-];
-
 export const errorLinks = [
-  {
-    name: "Documentation",
-    href: "/docs",
-    description: "Learn how Curator works",
-  },
   {
     name: "Scout",
     href: "/scout",
