@@ -1,3 +1,5 @@
+"use client";
+
 import { useState, useEffect } from "react";
 
 import { Button } from "@/components/ui/button";
@@ -82,9 +84,22 @@ export default function TeleopFields({ control, setValue }) {
               name={fieldName}
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>
-                    {fieldName.includes("High") ? "High" : "Low"}
-                  </FormLabel>
+                  {fieldName === "teleopBasketHigh" ||
+                  fieldName === "teleopBasketLow" ? (
+                    <FormLabel>
+                      {fieldName.includes("High") ? "High" : "Low"}{" "}
+                      <span className="text-xs text-muted-foreground">
+                        {fieldName.includes("High") ? "[1]" : "[2]"}
+                      </span>
+                    </FormLabel>
+                  ) : (
+                    <FormLabel>
+                      {fieldName.includes("High") ? "High" : "Low"}{" "}
+                      <span className="text-xs text-muted-foreground">
+                        {fieldName.includes("High") ? "[3]" : "[4]"}
+                      </span>
+                    </FormLabel>
+                  )}
                   <div className="flex items-center space-x-2">
                     <FormControl>
                       <Input

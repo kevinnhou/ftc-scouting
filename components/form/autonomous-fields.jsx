@@ -1,3 +1,5 @@
+"use client";
+
 import { Button } from "@/components/ui/button";
 import {
   FormControl,
@@ -39,7 +41,38 @@ export default function AutonomousFields({ control, setValue }) {
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel>
-                      {fieldName.includes("High") ? "High" : "Low"}
+                      {fieldName === "autoBasketHigh" && (
+                        <>
+                          High{" "}
+                          <span className="text-xs text-muted-foreground">
+                            [1]
+                          </span>
+                        </>
+                      )}
+                      {fieldName === "autoBasketLow" && (
+                        <>
+                          Low{" "}
+                          <span className="text-xs text-muted-foreground">
+                            [2]
+                          </span>
+                        </>
+                      )}
+                      {fieldName === "autoChamberHigh" && (
+                        <>
+                          High{" "}
+                          <span className="text-xs text-muted-foreground">
+                            [3]
+                          </span>
+                        </>
+                      )}
+                      {fieldName === "autoChamberLow" && (
+                        <>
+                          Low{" "}
+                          <span className="text-xs text-muted-foreground">
+                            [4]
+                          </span>
+                        </>
+                      )}
                     </FormLabel>
                     <div className="flex items-center space-x-2">
                       <FormControl>
