@@ -35,6 +35,90 @@ export default function ScoutingForm({ form, onSubmit }) {
     return () => subscription.unsubscribe();
   }, [watch]);
 
+  useEffect(() => {
+    function handleKeyDown(e) {
+      if (e.target.tagName === "INPUT" || e.target.tagName === "TEXTAREA") {
+        return;
+      }
+
+      if (activeTab === "auto") {
+        switch (e.key) {
+          case "1":
+            const autoBasketHighValue = (watch("autoBasketHigh") || 0) + 1;
+            setValue("autoBasketHigh", autoBasketHighValue);
+            toast.success(`Auto Basket High: ${autoBasketHighValue}`, {
+              duration: 1000,
+              position: "bottom-right",
+            });
+            break;
+          case "2":
+            const autoBasketLowValue = (watch("autoBasketLow") || 0) + 1;
+            setValue("autoBasketLow", autoBasketLowValue);
+            toast.success(`Auto Basket Low: ${autoBasketLowValue}`, {
+              duration: 1000,
+              position: "bottom-right",
+            });
+            break;
+          case "3":
+            const autoChamberHighValue = (watch("autoChamberHigh") || 0) + 1;
+            setValue("autoChamberHigh", autoChamberHighValue);
+            toast.success(`Auto Chamber High: ${autoChamberHighValue}`, {
+              duration: 1000,
+              position: "bottom-right",
+            });
+            break;
+          case "4":
+            const autoChamberLowValue = (watch("autoChamberLow") || 0) + 1;
+            setValue("autoChamberLow", autoChamberLowValue);
+            toast.success(`Auto Chamber Low: ${autoChamberLowValue}`, {
+              duration: 1000,
+              position: "bottom-right",
+            });
+            break;
+        }
+      } else if (activeTab === "teleop") {
+        switch (e.key) {
+          case "1":
+            const teleopBasketHighValue = (watch("teleopBasketHigh") || 0) + 1;
+            setValue("teleopBasketHigh", teleopBasketHighValue);
+            toast.success(`Teleop Basket High: ${teleopBasketHighValue}`, {
+              duration: 1000,
+              position: "bottom-right",
+            });
+            break;
+          case "2":
+            const teleopBasketLowValue = (watch("teleopBasketLow") || 0) + 1;
+            setValue("teleopBasketLow", teleopBasketLowValue);
+            toast.success(`Teleop Basket Low: ${teleopBasketLowValue}`, {
+              duration: 1000,
+              position: "bottom-right",
+            });
+            break;
+          case "3":
+            const teleopChamberHighValue =
+              (watch("teleopChamberHigh") || 0) + 1;
+            setValue("teleopChamberHigh", teleopChamberHighValue);
+            toast.success(`Teleop Chamber High: ${teleopChamberHighValue}`, {
+              duration: 1000,
+              position: "bottom-right",
+            });
+            break;
+          case "4":
+            const teleopChamberLowValue = (watch("teleopChamberLow") || 0) + 1;
+            setValue("teleopChamberLow", teleopChamberLowValue);
+            toast.success(`Teleop Chamber Low: ${teleopChamberLowValue}`, {
+              duration: 1000,
+              position: "bottom-right",
+            });
+            break;
+        }
+      }
+    }
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [activeTab, setValue, watch]);
+
   function updateProgress(formValues) {
     const totalRequiredFields = requiredFields.length;
     const completedRequiredFields = requiredFields.filter((fieldName) => {
