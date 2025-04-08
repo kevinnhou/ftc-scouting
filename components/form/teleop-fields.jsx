@@ -2,6 +2,8 @@
 
 import { useState, useEffect } from "react";
 
+import { toast } from "sonner";
+
 import { Button } from "@/components/ui/button";
 import {
   FormControl,
@@ -31,7 +33,20 @@ export default function TeleopFields({ control, setValue }) {
   }, [isRunning]);
 
   function incrementField(fieldName, currentValue) {
-    setValue(fieldName, (currentValue || 0) + 1);
+    const newValue = (currentValue || 0) + 1;
+    setValue(fieldName, newValue);
+
+    const fieldLabels = {
+      teleopBasketHigh: "Teleop Basket High",
+      teleopBasketLow: "Teleop Basket Low",
+      teleopChamberHigh: "Teleop Chamber High",
+      teleopChamberLow: "Teleop Chamber Low",
+    };
+
+    toast.success(`${fieldLabels[fieldName]}: ${newValue}`, {
+      duration: 1000,
+      position: "bottom-right",
+    });
   }
 
   function handleStartStop() {
@@ -51,12 +66,20 @@ export default function TeleopFields({ control, setValue }) {
       setValue("teleopCycleTimes", newCycleTimes);
       setLastRecordedTime(null);
       setTime(0);
+      toast.success(`Cycle time added: ${lastRecordedTime}s`, {
+        duration: 1500,
+        position: "bottom-right",
+      });
     }
   }
 
   function handleDiscardTime() {
     setLastRecordedTime(null);
     setTime(0);
+    toast.info("Cycle time discarded", {
+      duration: 1000,
+      position: "bottom-right",
+    });
   }
 
   function handleReset() {
@@ -64,6 +87,10 @@ export default function TeleopFields({ control, setValue }) {
     setCycleTimes([]);
     setValue("teleopCycleTimes", []);
     setLastRecordedTime(null);
+    toast.info("Cycle times reset", {
+      duration: 1000,
+      position: "bottom-right",
+    });
   }
 
   return (
