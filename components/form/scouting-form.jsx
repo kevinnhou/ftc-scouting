@@ -35,6 +35,52 @@ export default function ScoutingForm({ form, onSubmit }) {
     return () => subscription.unsubscribe();
   }, [watch]);
 
+  useEffect(() => {
+    function handleKeyDown(e) {
+      if (e.target.tagName === "INPUT" || e.target.tagName === "TEXTAREA") {
+        return;
+      }
+
+      if (activeTab === "auto") {
+        switch (e.key) {
+          case "1":
+            setValue("autoBasketHigh", (watch("autoBasketHigh") || 0) + 1);
+            break;
+          case "2":
+            setValue("autoBasketLow", (watch("autoBasketLow") || 0) + 1);
+            break;
+          case "3":
+            setValue("autoChamberHigh", (watch("autoChamberHigh") || 0) + 1);
+            break;
+          case "4":
+            setValue("autoChamberLow", (watch("autoChamberLow") || 0) + 1);
+            break;
+        }
+      } else if (activeTab === "teleop") {
+        switch (e.key) {
+          case "1":
+            setValue("teleopBasketHigh", (watch("teleopBasketHigh") || 0) + 1);
+            break;
+          case "2":
+            setValue("teleopBasketLow", (watch("teleopBasketLow") || 0) + 1);
+            break;
+          case "3":
+            setValue(
+              "teleopChamberHigh",
+              (watch("teleopChamberHigh") || 0) + 1
+            );
+            break;
+          case "4":
+            setValue("teleopChamberLow", (watch("teleopChamberLow") || 0) + 1);
+            break;
+        }
+      }
+    }
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [activeTab, setValue, watch]);
+
   function updateProgress(formValues) {
     const totalRequiredFields = requiredFields.length;
     const completedRequiredFields = requiredFields.filter((fieldName) => {
